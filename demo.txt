@@ -1,0 +1,12 @@
+Electron Demo: Local File Viewer ✅
+
+If you can read this inside the app, the demo worked.
+
+What just happened?
+1) Renderer (Chromium) showed the button + UI.
+2) Main process opened the native file picker.
+3) Node.js read this file from disk.
+4) The content was sent back to the renderer via IPC.
+
+Fun fact:
+This file lives on my computer (Desktop/Documents), not inside the app.

@@ -1,0 +1,106 @@
+<!-- This is the Renderer UI (Chromium) -->
+<!-- It is just a normal web page. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page settings so text renders correctly -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- The title you see in the window/tab name -->
+  <title>Electron File Viewer</title>
+
+  <style>
+    /* Page-level styling: dark background + readable text */
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: #e5e7eb;
+    }
+
+    /* Top header bar */
+    header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #374151;
+    }
+
+    /* Title text */
+    h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* Main layout container (simple vertical stack) */
+    .container {
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    /* Button styling */
+    button {
+      width: fit-content;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 10px;
+      background: #22d3ee;
+      color: #0b1220;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Slight hover effect so it feels clickable */
+    button:hover {
+      filter: brightness(0.95);
+    }
+
+    /* Small "meta" text under the button (file path) */
+    .meta {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    /* Output box for the file contents */
+    pre {
+      /* Preserve new lines, but still wrap long lines */
+      white-space: pre-wrap;
+      word-wrap: break-word;
+
+      background: #0b1220;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 16px;
+
+      /* Give it space so content is easy to read */
+      min-height: 320px;
+
+      /* If content is long, allow scrolling */
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Simple header area -->
+  <header>
+    <h1>Electron Demo: Local .txt File Viewer</h1>
+  </header>
+
+  <!-- Main UI -->
+  <div class="container">
+    <!-- Button the user clicks to choose a file -->
+    <button id="openBtn">Open .txt file</button>
+
+    <!-- Shows which file was selected -->
+    <div class="meta" id="filePath">No file selected</div>
+
+    <!-- Where the file text will appear -->
+    <pre id="output">File contents will appear here…</pre>
+  </div>
+
+  <!-- Renderer JS: handles button click + updates the UI -->
+  <script src="./renderer.js"></script>
+</body>
+</html>
