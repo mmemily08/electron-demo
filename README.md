@@ -30,13 +30,13 @@ npm -v
 ## Project Structure
 ```text
 electron-demo/
-├── main.js
-├── preload.js
-├── renderer.js
-├── index.html
+├── main.js        # Main process (creates window, opens file dialog, reads file)
+├── preload.js     # Safe bridge (exposes API to renderer)
+├── renderer.js    # Renderer logic (button click + updates UI)
+├── index.html     # Renderer UI
+├── demo.txt       # Sample file to open
 ├── package.json
-├── demo.txt
-└── README.md
+└── package-lock.json
 ```
 
 ---
